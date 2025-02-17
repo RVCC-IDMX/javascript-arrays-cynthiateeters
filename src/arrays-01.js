@@ -17,9 +17,10 @@
  * Returns the first element of an array.
  * @param {Array} arr - The array.
  * @returns {*} The first element.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#indexed_elements
  */
 function getFirstValue(arr) {
-  // TODO: implement code
+  return arr[0];
 }
 
 /**
@@ -29,9 +30,10 @@ function getFirstValue(arr) {
  * @param {*} c - Third element.
  * @param {*} d - Fourth element.
  * @returns {Array} An array with the four elements.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#array_literals
  */
 function makeArray(a, b, c, d) {
-  // TODO: implement code
+  return [a, b, c, d];
 }
 
 /**
@@ -39,17 +41,21 @@ function makeArray(a, b, c, d) {
  * @returns {Array<number>} [2, 3, 5, 7, 11]
  */
 function createFirstFivePrimes() {
-  // TODO: implement code
+  return [2, 3, 5, 7, 11];
 }
 
 /**
  * Creates an array of sequential numbers from 0 up to size - 1.
  * @param {number} size - The size of the array.
  * @returns {Array<number>} The new array.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for
  */
 function createSizedArray(size) {
-  // TODO: implement code
-  // HINT: Use a for loop and push numbers from 0 to size - 1 into an array.
+  let result = [];
+  for (let i = 0; i < size; i++) {
+    result.push(i);
+  }
+  return result;
 }
 
 /**
@@ -57,11 +63,14 @@ function createSizedArray(size) {
  * Works on a shallow copy.
  * @param {Array} arr - The original array.
  * @returns {Array} The modified array.
- * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
  */
 function modifyArrayByAdding(arr) {
-  // TODO: implement code
-  // HINT: Create a shallow copy and then use unshift() and push().
+  let copy = [...arr];
+  copy.unshift(1);
+  copy.push(1);
+  return copy;
 }
 
 /**
@@ -69,10 +78,18 @@ function modifyArrayByAdding(arr) {
  * Works on a shallow copy.
  * @param {Array} arr - The array to modify.
  * @returns {Array} The modified array.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop
  */
 function modifyArrayByDeleting(arr) {
-  // TODO: implement code
-  // HINT: Create a shallow copy and use shift() and pop() if the array is not empty.
+  let copy = [...arr];
+  if (copy.length > 0) {
+    copy.shift();
+  }
+  if (copy.length > 0) {
+    copy.pop();
+  }
+  return copy;
 }
 
 /**
@@ -82,7 +99,7 @@ function modifyArrayByDeleting(arr) {
  * @returns {*} The element at the given index.
  */
 function findElementAtIndex(arr, index) {
-  // TODO: implement code
+  return arr[index];
 }
 
 /**
@@ -91,9 +108,10 @@ function findElementAtIndex(arr, index) {
  * @param {Array} arr - The array.
  * @param {*} value - The value to find.
  * @returns {number} The index or -1 if not found.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/indexOf
  */
 function findElementByValue(arr, value) {
-  // TODO: implement code
+  return arr.indexOf(value);
 }
 
 /**
@@ -105,25 +123,28 @@ function findElementByValue(arr, value) {
  * @returns {Array} The modified array.
  */
 function changeElementAtIndex(arr, index, value) {
-  // TODO: implement code
+  arr[index] = value;
+  return arr;
 }
 
 /**
  * Joins all elements of an array into a string without any separator.
  * @param {Array} arr - The array of elements.
  * @returns {string} The joined string.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
  */
 function makeStringFromArray(arr) {
-  // TODO: implement code
+  return arr.join('');
 }
 
 /**
  * Creates a shallow copy of an array using the spread operator.
  * @param {Array} arr - The array.
  * @returns {Array} A new array with the same elements.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax
  */
 function createShallowCopy(arr) {
-  // TODO: implement code
+  return [...arr];
 }
 
 module.exports = {

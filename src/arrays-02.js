@@ -18,10 +18,10 @@
  * @param {string} str - The string.
  * @param {number} indx - The index.
  * @returns {string} The character at that index.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
  */
 function findTheCharacterAtIndex(str, indx) {
-  // TODO: implement code
-  // HINT: Use the charAt() method.
+  return str.charAt(indx);
 }
 
 /**
@@ -30,9 +30,10 @@ function findTheCharacterAtIndex(str, indx) {
  * @param {number} start - The start index.
  * @param {number} end - The end index.
  * @returns {string} The sliced string.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice
  */
 function sliceTheString(str, start, end) {
-  // TODO: implement code
+  return str.slice(start, end);
 }
 
 /**
@@ -40,27 +41,30 @@ function sliceTheString(str, start, end) {
  * @param {string} str - The string.
  * @param {string} separator - The separator.
  * @returns {Array} An array of substrings.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
  */
 function splitTheString(str, separator) {
-  // TODO: implement code
+  return str.split(separator);
 }
 
 /**
  * Converts the entire string to uppercase.
  * @param {string} str - The string.
  * @returns {string} The uppercase string.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
  */
 function makeAllUpperCase(str) {
-  // TODO: implement code
+  return str.toUpperCase();
 }
 
 /**
  * Converts the entire string to lowercase.
  * @param {string} str - The string.
  * @returns {string} The lowercase string.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase
  */
 function makeAllLowerCase(str) {
-  // TODO: implement code
+  return str.toLowerCase();
 }
 
 /**
@@ -69,8 +73,8 @@ function makeAllLowerCase(str) {
  * @returns {string} The word in title case.
  */
 function makeWordTitleCase(word) {
-  // TODO: implement code
-  // HINT: Capitalize the first letter and lowercase the rest.
+  if (word.length === 0) return '';
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 }
 
 /**
@@ -79,20 +83,25 @@ function makeWordTitleCase(word) {
  * @param {string} oldStr - The substring to be replaced.
  * @param {string} newStr - The replacement string.
  * @returns {string} The modified string.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
  */
 function replaceTheString(str, oldStr, newStr) {
-  // TODO: implement code
-  // HINT: Try using the split() method, then join.
+  return str.split(oldStr).join(newStr);
 }
 
 /**
  * Converts a sentence so that each word's first letter is capitalized.
  * @param {string} sentence - The sentence.
  * @returns {string} The title-cased sentence.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
  */
 function makeSentenceTitleCase(sentence) {
-  // TODO: implement code
-  // HINT: Split the sentence into words, transform each word, then join them back.
+  let words = sentence.split(' ');
+  for (let i = 0; i < words.length; i++) {
+    words[i] = makeWordTitleCase(words[i]);
+  }
+  return words.join(' ');
 }
 
 module.exports = {

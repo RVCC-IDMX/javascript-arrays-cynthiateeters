@@ -17,20 +17,26 @@
  * Returns the sum of all numbers in an array.
  * @param {Array<number>} arr - An array of numbers.
  * @returns {number} The sum.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
  */
 function addUpArrayElements(arr) {
-  // TODO: implement code
-  // HINT: Use a loop (for or forEach) to sum the elements.
+  let sum = 0;
+  arr.forEach(function (num) {
+    sum += num;
+  });
+  return sum;
 }
 
 /**
  * Returns a new array with each number squared.
  * @param {Array<number>} arr - An array of numbers.
  * @returns {Array<number>} A new array with squared values.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
  */
 function makeSquareNumbers(arr) {
-  // TODO: implement code
-  // HINT: Use the map() method.
+  return arr.map(function (num) {
+    return num * num;
+  });
 }
 
 /**
@@ -38,28 +44,36 @@ function makeSquareNumbers(arr) {
  * @param {Array<string>} arr - An array of words.
  * @param {number} length - The minimum length.
  * @returns {Array<string>} The filtered array.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
  */
 function filterForLargeWords(arr, length) {
-  // TODO: implement code
+  return arr.filter(function (word) {
+    return word.length > length;
+  });
 }
 
 /**
  * Returns the first even number found in an array.
  * @param {Array<number>} arr - An array of numbers.
  * @returns {number|undefined} The first even number or undefined.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find
  */
 function findTheFirstEvenNumber(arr) {
-  // TODO: implement code
+  return arr.find(function (num) {
+    return num % 2 === 0;
+  });
 }
 
 /**
  * Sorts an array of words in ascending, case-sensitive order.
  * @param {Array<string>} arr - An array of words.
  * @returns {Array<string>} The sorted array.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
  */
 function sortCaseSensitive(arr) {
-  // TODO: implement code
-  // HINT: Create a shallow copy and then use sort().
+  let copy = [...arr];
+  copy.sort();
+  return copy;
 }
 
 /**
@@ -67,18 +81,20 @@ function sortCaseSensitive(arr) {
  * @param {Array} arr - The array of words.
  * @param {string} separator - The separator.
  * @returns {string} The resulting string.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join
  */
 function makeTheString(arr, separator) {
-  // TODO: implement code
+  return arr.join(separator);
 }
 
 /**
  * Returns a new array with the elements reversed.
  * @param {Array} arr - The original array.
  * @returns {Array} The reversed array.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse
  */
 function reverseTheArray(arr) {
-  // TODO: implement code
+  return arr.slice().reverse();
 }
 
 /**
@@ -86,10 +102,14 @@ function reverseTheArray(arr) {
  * For example, [1, 2, 3] becomes [1, 2, 3, 2, 1].
  * @param {Array} arr - The original array.
  * @returns {Array} The mirror array.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat
  */
 function makeMirrorArray(arr) {
-  // TODO: implement code
-  // HINT: Use slice (exclude the last element), reverse it, then concat.
+  if (arr.length <= 1) {
+    return [...arr];
+  }
+  const reversedPart = [...arr].slice(0, arr.length - 1).reverse();
+  return arr.concat(reversedPart);
 }
 
 /**
@@ -97,10 +117,13 @@ function makeMirrorArray(arr) {
  * @param {Array} arr - The original array.
  * @param {number} n - Number of elements to drop.
  * @returns {Array} The resulting array.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
  */
 function dropRight(arr, n) {
-  // TODO: implement code
-  // HINT: Use slice() to return elements up to arr.length - n.
+  if (n >= arr.length) {
+    return [];
+  }
+  return arr.slice(0, arr.length - n);
 }
 
 /**
@@ -108,10 +131,10 @@ function dropRight(arr, n) {
  * @param {Array} arr - The original array.
  * @param {number} n - Number of elements to drop.
  * @returns {Array} The resulting array.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice
  */
 function dropLeft(arr, n) {
-  // TODO: implement code
-  // HINT: Use slice() starting at index n.
+  return arr.slice(n);
 }
 
 /**
@@ -119,9 +142,10 @@ function dropLeft(arr, n) {
  * @param {Array} arr - The array.
  * @param {*} val - The value to search for.
  * @returns {boolean} True if found, false otherwise.
+ * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
  */
 function checkArrayForValue(arr, val) {
-  // TODO: implement code
+  return arr.includes(val);
 }
 
 module.exports = {

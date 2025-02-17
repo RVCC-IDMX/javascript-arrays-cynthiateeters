@@ -86,3 +86,5 @@ When all tests pass, commit your changes and push to your repository. GitHub wil
 - - -
 
 For more details on Vitest, please see the [Vitest documentation](https://vitest.dev/).
+
+Is GitHub Actions OK?
